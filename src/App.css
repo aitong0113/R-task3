@@ -1,42 +1,130 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* =========================
+   Login Page
+========================= */
+
+.login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f7fb;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.login h1 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-signin {
+  width: 100%;
+  max-width: 360px;
+  background: #ffffff;
+  padding: 32px 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.form-signin .form-control {
+  border-radius: 8px;
 }
 
-.card {
-  padding: 2em;
+.form-signin button {
+  margin-top: 16px;
+  border-radius: 8px;
+  font-weight: 500;
 }
 
-.read-the-docs {
-  color: #888;
+.login p {
+  margin-top: 24px;
+  font-size: 13px;
+  color: #999;
+}
+
+
+/* =========================
+   Product List Table
+========================= */
+
+.table {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background: #f8f9fa;
+  font-weight: 600;
+  font-size: 14px;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.table tbody td {
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+/* 固定表格欄位計算 */
+.table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* 欄位寬度（重點） */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 140px;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3),
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  width: 120px;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  width: 100px;
+}
+
+.table th:nth-child(6),
+.table td:nth-child(6) {
+  width: 140px;
+}
+
+/* 產品名稱：最多兩行 */
+.product-title {
+  display: block;
+  line-height: 1.5;
+  max-height: 3em;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+/* 價格欄位：等寬數字 + 右對齊 */
+.price {
+  display: block;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+/* 啟用狀態 */
+.status-enabled {
+  color: #2ecc71;
+  font-weight: 600;
+}
+
+.status-disabled {
+  color: #adb5bd;
+}
+
+/* 操作按鈕 */
+.btn-group .btn {
+  padding: 4px 10px;
+  font-size: 13px;
 }

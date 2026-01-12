@@ -38,7 +38,7 @@ function App() {
   });
 
 
-// 四、Modal 開啟控制（新增 / 編輯）
+  // 四、Modal 開啟控制（新增 / 編輯）
   const openNewModal = () => {
     // 設定為新增模式
     setIsNew(true);
@@ -69,7 +69,7 @@ function App() {
   };
 
 
-//五、產品 CRUD 行為
+  //五、產品 CRUD 行為
   const createProduct = async () => {
     // 基本欄位驗證
     if (!tempProduct.title || !tempProduct.category || !tempProduct.unit) {
@@ -93,8 +93,8 @@ function App() {
     }
   };
 
-//更新產品
-    const updateProduct = async () => {
+  //更新產品
+  const updateProduct = async () => {
     try {
       // 依產品 id 更新資料
       await axios.put(
@@ -111,8 +111,8 @@ function App() {
   };
 
 
-// 刪除產品（含確認 Modal）
-    const deleteProduct = async () => {
+  // 刪除產品（含確認 Modal）
+  const deleteProduct = async () => {
     try {
       // 依目前 tempProduct.id 刪除產品
       await axios.delete(
@@ -128,7 +128,7 @@ function App() {
   };
 
 
- //六、表單資料處理（產品）
+  //六、表單資料處理（產品）
   const handleProductChange = (e) => {
     const { id, value, type, checked } = e.target;
 
@@ -150,7 +150,7 @@ function App() {
     });
   };
 
-//七、取得產品列表
+  //七、取得產品列表
   const getProducts = async () => {
     try {
       const res = await axios.get(
@@ -187,7 +187,7 @@ function App() {
         await axios.post(`${API_BASE}/api/user/check`);
         setisAuth(true);
         // 驗證成功後取得產品列表
-        await getProducts(); 
+        await getProducts();
 
       } catch (err) {
         console.log(err.response?.data?.message);
@@ -238,7 +238,7 @@ function App() {
                 建立新的產品
               </button>
             </div>
-            <table className="table mt-4">
+            <table className="table mt-4 align-middle">
               <thead>
                 <tr>
                   <th width="120">分類</th>
@@ -255,14 +255,20 @@ function App() {
                   products.map((item) => (
                     <tr key={item.id}>
                       <td>{item.category}</td>
-                      <td>{item.title}</td>
-                      <td className="text-end">{item.origin_price}</td>
-                      <td className="text-end">{item.price}</td>
+                      <td>
+                        <span className="product-title">{item.title}</span>
+                      </td>
+                      <td>
+                        <span className="price">{item.origin_price}</span>
+                      </td>
+                      <td>
+                        <span className="price">{item.price}</span>
+                      </td>
                       <td>
                         {item.is_enabled ? (
-                          <span className="text-success">啟用</span>
+                          <span className="status-enabled">啟用</span>
                         ) : (
-                          <span>未啟用</span>
+                          <span className="status-disabled">未啟用</span>
                         )}
                       </td>
                       <td>
